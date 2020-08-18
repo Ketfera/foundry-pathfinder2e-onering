@@ -1,0 +1,14 @@
+# IDE
+.idea/
+.vs/
+icons/\!dox/
+
+/.vscode
+/dist-example
+/node_modules/
+/dist/*
+!/dist/packs
+!/dist/icons
+foundryconfig.json
+package/
+coverage

@@ -1,0 +1,117 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <aside>
+        <img
+            class="logo"
+            src="systems/pf2e/assets/pathfinder_logo.png"
+            alt=""
+            srcset=""
+        />
+        <div class="sidebar" data-group="dashboard" data-tab="sidebar">
+            <!-- HEALTH -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/sidebar/actor-health.html}}
+
+            <!-- STAMINA (if enabled) -->
+            {{#if_stamina}} {{>
+                systems/pf2e/templates/actors/crb-style/sidebar/actor-stamina.html}}
+            {{/if_stamina}}
+
+            <!-- ARMOR CLASS -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/sidebar/actor-armorclass.html}}
+
+            <!-- Perception -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/sidebar/actor-perception.html}}
+
+            <!-- Class DC -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/sidebar/actor-class-dc.html}}
+
+            <!-- Initiative -->
+            {{>
+              systems/pf2e/templates/actors/crb-style/sidebar/actor-initiative.html}}
+
+            <!-- Saves -->
+            {{>
+              systems/pf2e/templates/actors/crb-style/sidebar/actor-saves.html}}
+
+            <!-- Resistances -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/sidebar/actor-resistances.html}}
+        </div>
+    </aside>
+
+    <!-- HEADER -->
+    {{> systems/pf2e/templates/actors/crb-style/actor-header.html}}
+
+    <!-- SHEET NAVIGATION -->
+    <nav class="sheet-navigation" data-group="primary">
+        <a class="item active" data-tab="character">
+            <i class="fas fa-address-card"></i>
+            <span>{{localize "PF2E.TabCharacterLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="actions">
+            <i class="fas fa-bullseye"></i>
+            <span>{{localize "PF2E.TabActionsLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="inventory">
+            <i class="fas fa-box-open"></i>
+            <span>{{localize "PF2E.TabInventoryLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="spellbook">
+            <i class="fas fa-magic"></i>
+            <span>{{localize "PF2E.TabSpellbookLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="skills">
+            <i class="fas fa-hand-sparkles"></i>
+            <span>{{localize "PF2E.TabSkillsLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="feats">
+            <i class="fas fa-medal"></i>
+            <span>{{localize "PF2E.TabFeatsLabel"}}</span>
+        </a>
+
+        <a class="item" data-tab="biography">
+            <i class="fas fa-book-reader"></i>
+            <span>{{localize "PF2E.Biography"}}</span>
+        </a>
+    </nav>
+
+    <!-- BODY -->
+    <section class="sheet-body">
+        <section class="sheet-content">
+            <!-- Character -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/tabs/actor-character.html }}
+
+            <!-- Actions -->
+            {{> systems/pf2e/templates/actors/crb-style/tabs/actor-actions.html
+            }}
+
+            <!-- INVENTORY -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/tabs/actor-inventory.html }}
+
+            <!-- SPELLBOOK -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/tabs/actor-spellbook.html }}
+
+            <!-- SKILLS -->
+            {{> systems/pf2e/templates/actors/crb-style/tabs/actor-skills.html
+            }}
+
+            <!-- FEATS -->
+            {{> systems/pf2e/templates/actors/crb-style/tabs/actor-feats.html }}
+
+            <!-- BIOGRAPHY -->
+            {{>
+            systems/pf2e/templates/actors/crb-style/tabs/actor-biography.html }}
+        </section>
+    </section>
+</form>

@@ -1,0 +1,19 @@
+.compendium-browser {
+    @import 'nav';
+    @import 'settings';
+    @import 'spelltab';
+    
+    .tab.browser > div {
+        display: grid;
+
+        grid-template-columns: 320px auto;
+
+        .control-area {
+            grid-column-start: 1;
+        }
+        ul {
+            grid-column-start: 2;
+        }
+    }
+
+}

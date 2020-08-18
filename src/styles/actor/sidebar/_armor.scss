@@ -1,0 +1,173 @@
+.shield-action {
+    position: relative;
+    display: none;
+    img {
+        border: 0;
+        height: 12px;
+        left: -13px;
+        position: absolute;
+        -webkit-filter: drop-shadow(2px 2px 5px rgba(238, 238, 16, 0.8));
+        filter: drop-shadow(0px 0px 3px rgba(238, 238, 16, 1));
+    }
+}
+
+.armor-class {
+    display: grid;
+    grid:
+        'ac shield-hp shield-footer' 74px
+        'shield-data shield-data shield-data' auto
+        / 66px 59px auto;
+    grid-column-gap: 4px;
+
+    .shield {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 74px;
+        text-align: center;
+        padding: 0 5px;
+        h4,
+        label {
+            font-family: $serif;
+            font-weight: 500;
+            white-space: normal;
+        }
+        .data-value {
+            h2,
+            input[type='number'] {
+                font-size: 32px;
+                color: white;
+                line-height: 24px;
+                border-bottom: 1px solid transparent;
+                height: 26px;
+                width: 55px;
+            }
+        }
+        label {
+            font-size: 10px;
+        }
+        &.ac {
+            grid-area: ac;
+            color: $sidebar-label;
+            background: url('../assets/sheet/shield-blue.png') no-repeat center
+                center;
+            h2 {
+                color: $sidebar-label;
+            }
+        }
+        &.hp {
+            grid-area: shield-hp;
+            background: url('../assets/sheet/shield-red.png') no-repeat top
+                center;
+            .data-value:hover {
+                input[type='number'] {
+                    @include input-glow;
+                }
+            }
+        }
+    }
+    .shield-stats {
+        grid-area: shield-data;
+        ol {
+            margin-top: 4px;
+            flex-direction: row;
+            height: 100%;
+            padding: 0 4px;
+            justify-content: space-evenly;
+            li {
+                justify-content: center;
+                font-size: 0;
+
+                & + li {
+                    margin-left: 8px;
+                }
+                .shield-label {
+                    position: relative;
+                    svg {
+                        border: none;
+                        width: auto;
+                        height: 20px;
+                    }
+                    &:after {
+                        display: inline-block;
+                        position: absolute;
+                        @include micro;
+                        color: var(--primary);
+                        top: 0;
+                        left: 1px;
+                        line-height: 1.5;
+                    }
+                    &.ac:after {
+                        content: 'AC';
+                        top: 3px;
+                        left: 3px;
+                    }
+                    &.hardness:after {
+                        left: 5px;
+                        top: 3px;
+                        content: 'H';
+                    }
+                    &.bt:after {
+                        top: 3px;
+                        left: 3.5px;
+                        content: 'BT';
+                    }
+                }
+                .data-value {
+                    flex: 1;
+                    @include input-border;
+                    padding-left: 4px;
+                    margin-left: -8px;
+                    height: 20px;
+                    &:focus-within {
+                        border: 1px solid;
+                    }
+                    input[type='number'] {
+                        font-size: 14px;
+                        font-weight: 400;
+                        padding-top: 2px;
+                        height: 14px;
+                    }
+                }
+            }
+        }
+    }
+    .armor_footer {
+        grid-area: shield-footer;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-self: center;
+        width: calc(100% - 6px);
+        .shield-max {
+            display: flex;
+            flex-direction: column;
+            @include flex-center;
+            label {
+                white-space: normal;
+                text-align: center;
+                margin-bottom: 4px;
+            }
+            .data-value {
+                border-bottom: 1px solid transparent;
+                width: 75%;
+                input {
+                    &:hover {
+                        @include input-glow;
+                    }
+                    &:focus {
+                        border-bottom: 1px solid var(--tertiary);
+                    }
+                }
+            }
+        }
+        .shield-status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            margin-top: 4px;
+        }
+    }
+}
